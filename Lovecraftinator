@@ -1,0 +1,42 @@
+import random
+
+class EldritchGenerator:
+    """A tool to generate Lovecraftian descriptions for TTRPG sessions."""
+
+    def __init__(self):
+        self.adjectives = [
+            "cyclopean", "non-euclidean", "squamous", "gibbering", 
+            "eldritch", "sepulchral", "stygian", "unnamable", "antediluvian"
+        ]
+        self.nouns = [
+            "monolith", "abyss", "ichor", "geometry", "entity", 
+            "catacombs", "pinnacle", "void", "cacophony"
+        ]
+        self.atmospheres = [
+            "that defies all human logic",
+            "shrouded in a mist of ancient decay",
+            "pulsing with a faint, rhythmic thrumming",
+            "older than the stars themselves",
+            "dripping with a translucent, foul-smelling slime"
+        ]
+
+    def generate_description(self):
+        """Combines elements to create a unique descriptive sentence."""
+        adj = random.choice(self.adjectives)
+        noun = random.choice(self.nouns)
+        atmosphere = random.choice(self.atmospheres)
+        
+        return f"Before you lies a {adj} {noun}, {atmosphere}."
+
+def main():
+    # Showcasing how to use the generator
+    generator = EldritchGenerator()
+    
+    print("--- Cthulhu Mythos Description Generator ---")
+    print("Generating 3 random encounters:\n")
+    
+    for i in range(1, 4):
+        print(f"{i}. {generator.generate_description()}")
+
+if __name__ == "__main__":
+    main()
