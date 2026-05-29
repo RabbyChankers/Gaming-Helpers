@@ -1,0 +1,14 @@
+# D&D 5e NPC Generator
+
+A simple Python utility to help Dungeon Masters quickly generate non-player characters (NPCs) with unique names, races, and personality quirks.
+
+## Overview
+This project demonstrates the use of:
+*   **Object-Oriented Programming (OOP):** Encapsulating logic within a class.
+*   **Data Structures:** Using lists and dictionaries to manage NPC attributes.
+*   **Randomization:** Utilizing the Python `random` library for procedural generation.
+
+## Usage
+Run the script using Python 3:
+```bash
+python npc_gen.py
