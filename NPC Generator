@@ -1,0 +1,96 @@
+import random
+
+
+class NPCGenerator:
+    """Generate simple D&D-style NPCs with a name and short description."""
+
+    def __init__(self):
+        self.first_names = [
+            "Alaric", "Brenna", "Cedric", "Delia", "Eldon",
+            "Fiora", "Garrick", "Helena", "Ivor", "Jessamine",
+            "Kaelin", "Liora", "Merric", "Nerys", "Orin",
+            "Perrin", "Quilla", "Rowan", "Seraphina", "Theron"
+        ]
+
+        self.last_names = [
+            "Ashdown", "Briarfell", "Crowhurst", "Duskryn", "Evenwood",
+            "Fairmeadow", "Grimsbane", "Hollowmere", "Ironwood", "Jadeeye",
+            "Keenblade", "Lightfoot", "Moonwhisper", "Nightbrook", "Oakenshield",
+            "Pennythistle", "Quickwater", "Ravencrest", "Stormvale", "Thornfield"
+        ]
+
+        self.races = [
+            "Human", "Elf", "Dwarf", "Halfling", "Tiefling",
+            "Dragonborn", "Half-Orc", "Gnome", "Half-Elf"
+        ]
+
+        self.roles = [
+            "innkeeper", "mercenary", "priest", "blacksmith", "shopkeeper",
+            "scholar", "guard", "smuggler", "ranger", "healer",
+            "bard", "sailor", "hunter", "noble", "gravekeeper"
+        ]
+
+        self.traits = [
+            "suspicious of strangers",
+            "remarkably cheerful despite grim circumstances",
+            "always speaking in whispers",
+            "covered in faded tattoos",
+            "missing two fingers on the left hand",
+            "obsessed with local gossip",
+            "proud and easily offended",
+            "soft-spoken but intensely observant",
+            "quick to laugh and quicker to lie",
+            "haunted by a mistake from the past"
+        ]
+
+        self.appearances = [
+            "wears a patched wool cloak",
+            "has striking amber eyes",
+            "keeps their hair tied back with leather cord",
+            "walks with a noticeable limp",
+            "smells faintly of pipe smoke",
+            "is dressed in unusually fine clothing",
+            "has mud-stained boots and rough hands",
+            "wears a holy symbol around the neck",
+            "has a jagged scar across the chin",
+            "carries an old lantern even in daylight"
+        ]
+
+    def generate_name(self):
+        """Return a random full name."""
+        first_name = random.choice(self.first_names)
+        last_name = random.choice(self.last_names)
+        return f"{first_name} {last_name}"
+
+    def generate_npc(self):
+        """Return a dictionary containing a random NPC."""
+        return {
+            "name": self.generate_name(),
+            "race": random.choice(self.races),
+            "role": random.choice(self.roles),
+            "trait": random.choice(self.traits),
+            "appearance": random.choice(self.appearances)
+        }
+
+
+def format_npc(npc):
+    """Create a readable one-line summary of an NPC."""
+    return (
+        f"{npc['name']} is a {npc['race']} {npc['role']} who is "
+        f"{npc['trait']} and {npc['appearance']}."
+    )
+
+
+def main():
+    generator = NPCGenerator()
+
+    print("--- D&D 5e NPC Generator ---")
+    print("Generating 3 NPCs:\n")
+
+    for number in range(1, 4):
+        npc = generator.generate_npc()
+        print(f"{number}. {format_npc(npc)}")
+
+
+if __name__ == "__main__":
+    main()
